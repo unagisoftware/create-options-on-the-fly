@@ -1,0 +1,6 @@
+@layer components {
+  .form-control .ts-control {
+    @apply p-4 rounded-lg;
+  }
+}
+

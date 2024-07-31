@@ -25,7 +25,13 @@
       <div class="label">
         <span class="label-text">Genre</span>
       </div>
-      <%= form.collection_select(:genre_id, Genre.all, :id, :name, { prompt: 'Select Genre' }, required: true, class: 'select select-bordered') %>
+      <%= form.collection_select(
+          :genre_id,
+          Genre.all, :id, :name,
+          { prompt: 'Select Genre' },
+          required: true,
+          data: { controller: 'select' }
+        ) %>
     </label>
   </div>
 
