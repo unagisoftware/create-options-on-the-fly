@@ -1,0 +1,4 @@
+<%= turbo_stream.append 'genres-select' do %>
+  <option value="<%= @genre.id %>" data-select-target="item"> <%= @genre.name %> </option>
+<% end %>
+

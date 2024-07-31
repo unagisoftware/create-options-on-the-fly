@@ -29,6 +29,7 @@
           :genre_id,
           Genre.all, :id, :name,
           { prompt: 'Select Genre' },
+          id: 'genres-select',
           required: true,
           data: { controller: 'select' }
         ) %>
