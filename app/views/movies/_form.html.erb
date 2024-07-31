@@ -1,0 +1,35 @@
+<%= form_with(model: movie, class: "contents") do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Title</span>
+      </div>
+      <%= form.text_field :title, class: "input input-bordered w-full max-w-xs", required: true, autofocus: true, placeholder: 'Ex: Forrest Gump' %>
+    </label>
+  </div>
+
+  <div class="my-5">
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Genre</span>
+      </div>
+      <%= form.collection_select(:genre_id, Genre.all, :id, :name, { prompt: 'Select Genre' }, required: true, class: 'select select-bordered') %>
+    </label>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
