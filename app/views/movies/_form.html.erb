@@ -27,7 +27,7 @@
       </div>
       <%= form.collection_select(
           :genre_id,
-          Genre.all, :id, :name,
+          Genre.order(:name), :id, :name,
           { prompt: 'Select Genre' },
           id: 'genres-select',
           required: true,
